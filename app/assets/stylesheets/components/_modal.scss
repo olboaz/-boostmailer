@@ -1,0 +1,152 @@
+.modal-content-csv{
+  border-radius: 5px;
+  width: 80%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  pointer-events: auto;
+  background-color: $light-gray;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  outline: 0;
+  .close{
+    background: green;
+    border-radius: 0% 0% 0% 62%;
+    color: white;
+    padding: 10px 10px;
+    span{
+      position: relative;
+      top: -3px;
+      right: -1px;
+    }
+  }
+}
+
+.modal-body-csv{
+  display: flex;
+  justify-content: center;
+  margin-bottom: 25px;
+  .csv-text{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+    text-align: center;
+    font-weight: 500;
+    color: black;
+    cursor:pointer;
+  }
+}
+
+.supplier-csv{
+  width: 11em;
+  height: 10em;
+  color: rgba(183, 207, 204, 0.9);
+  display: -webkit-box;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0, 0, 0, 0.46);
+  border-radius: 3px;
+  overflow: hidden;
+  align-items: center;
+  justify-content: center;
+  background: white;
+  margin-bottom: 10px;
+  cursor:pointer;
+  &:hover{
+    box-shadow: 0 3px 18px 0 rgba(0, 0, 0, 0.12), 0 3px 5px -1px rgba(0, 0, 0, 0.2);
+  }
+}
+
+.filename-csv {
+  text-align: center;
+  background-image: linear-gradient(90deg, #C3F2DD, black);
+  margin: 0 0 10px 0;
+  font-size: 12px;
+}
+
+.submit-csv{
+  margin-top: 10px;
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 2px;
+  padding: 5px;
+  input {
+    border: none;
+    cursor:pointer;
+  }
+}
+
+$btn-color: black;
+$btn-alt-color: salmon;
+.btn-csv {
+  border-radius: 4px;
+  border: 2px solid $btn-color;
+  color: $btn-color;
+  display: none;
+  overflow: hidden;
+  padding: 10px 0px 10px 15px;
+  position: relative;
+  text-decoration: none;
+  line-height: 1;
+  width: 100%;
+  .btn-content {
+    font-size: 1em;
+    line-height: 1.2;
+    padding: 0 26px;
+    position: relative;
+    right: 25px;
+    transition: right 300ms ease;
+    display: block;
+    text-align: left;
+  }
+  .icon {
+    border-left: 1px solid $btn-color;
+    position: absolute;
+    right: 0;
+    text-align: center;
+    top: 50%;
+    transition: all 300ms ease;
+    transform: translateY(-50%);
+    width: 58px;
+    height: 70%;
+    i {
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+  }
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: $btn-color;
+    opacity: 0;
+    transition: opacity 300ms ease;
+  }
+  &:hover {
+    .btn-content {
+      right: 100%;
+    }
+    .icon {
+      border-left: 0;
+      width: 100%;
+    }
+    &:after {
+      opacity: .2;
+    }
+  }
+  &.btn-alt-color {
+    border-color: $btn-alt-color;
+    color: $btn-alt-color;
+    .icon {
+      border-left-color: $btn-alt-color;
+    }
+    &:after {
+      background-color: $btn-alt-color;
+    }
+  }
+}
