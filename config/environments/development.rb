@@ -29,6 +29,19 @@ Rails.application.configure do
     config.cache_store = :null_store
   end
 
+
+  # Initializer for mailer
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: 465,
+    address: 'encelade.o2switch.net',
+    user_name: ENV['O2_USER_NAME'],
+    password: ENV['O2_PASSWORD'],
+    authentication: :plain,
+    :enable_starttls_auto => true,
+    ssl: true
+  }
+
   # Store uploaded files on the local file system (see config/storage.yml for options).
   config.active_storage.service = :local
 
