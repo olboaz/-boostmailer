@@ -1,22 +1,23 @@
 <div class="">
   <div class="col-12">
-    <form action="" class="simple_form_suppliers">
+    <form action="" class="simple_form_customers">
+      <div class="actions-show">
+        <div class="button-action">
+          <%= link_to edit_customer_path(@customer) do %>
+           <i class="fas fa-pencil-alt"></i>
+          <% end %>
+        </div>
+        <div class="button-action">
+          <%= link_to customer_path(@customer), method: :delete, data: {confirm: "Etes vous certains de vouloir supprimer ce client ?"}  do %>
+          <i class="fas fa-trash-alt"></i>
+          <% end %>
+        </div>
+      </div>
+
       <div class="row">
-        <div class="col-8">
+        <div class="col-12">
           <label for="supplier_name" style="font-weight: bold; font-size: 13px;">Nom du restaurant :</label>
           <%= @customer.restaurant_name %>
-        </div>
-        <div class="col-4 actions-show">
-          <div class="button-action">
-            <%= link_to edit_customer_path(@customer) do %>
-             <i class="fas fa-pencil-alt"></i>
-            <% end %>
-          </div>
-          <div class="button-action">
-            <%= link_to customer_path(@customer), method: :delete, data: {confirm: "Etes vous certains de vouloir supprimer ce client ?"}  do %>
-            <i class="fas fa-trash-alt"></i>
-            <% end %>
-          </div>
         </div>
       </div>
       <div class="row mt-4">
@@ -35,9 +36,6 @@
           <%= @customer.email %>
         </div>
       </div>
-
-
-
 
     </form>
   </div>

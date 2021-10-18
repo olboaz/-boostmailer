@@ -1,7 +1,7 @@
 
-<div class="">
+<div class="simple_form_customers">
   <div class="col-12">
-    <%= simple_form_for @customer, :html=> { class: 'simple_form_suppliers' } do |f|  %>
+    <%= simple_form_for @customer do |f|  %>
       <div class="row">
         <div class="col-12">
           <label for="supplier_name" style="font-weight: bold; font-size: 13px;">Nom du restaurant :</label>
@@ -35,7 +35,7 @@
           <% else %>
               <%= link_to root_path, class: 'btn btn-outline-secondary' do %> Annuler <% end %>
           <% end %>
-        <%= f.button :submit, "#{button}", class: 'btn btn-success' %>
+        <%= f.button :submit, "#{button}", class: 'btn btn-flat' %>
       </div>
     <% end %>
 

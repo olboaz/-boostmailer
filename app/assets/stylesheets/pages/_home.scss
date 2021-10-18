@@ -12,7 +12,7 @@
 
 .main-title {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
 }
 
@@ -76,4 +76,39 @@
 .actions-show {
   display: flex;
   gap: 10px;
+  justify-content: end;
+  .fa-pencil-alt {
+    color: grey;
+  }
+  .fa-trash-alt {
+    color: red;
+  }
+}
+
+.simple_form_customers {
+  background: #FFFFFF;
+  border: 3px solid rgba(183, 207, 204, 0.9);
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.66);
+}
+
+.message-not-connected {
+  background: #FFFFFF;
+  border: 3px solid rgba(183, 207, 204, 0.9);
+  box-sizing: border-box;
+  border-radius: 4px;
+  padding: 20px;
+  max-width: 700px;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  color: rgba(0, 0, 0, 0.66);
+  display: flex;
+  text-align: center;
 }

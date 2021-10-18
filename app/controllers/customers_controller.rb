@@ -72,17 +72,28 @@ class CustomersController < ApplicationController
   end
 
   def send_mail
-    # sélectionner 10 clients aléatoirement qui n'ont pas déjà été envoyé
+    @customer = Customer.notsent
 
-    @customer = Customer.all
+    if @customer.present?
+      if @customer.count < 10
+        nb = @customer.count
+      else
+        nb = 10
+      end
 
-    @customer.each do |customer|
-      CustomerMailer.with(customer: customer).new_customer_email.deliver_later
-      customer.update(mail_sent: true, mail_date: DateTime.now)
+      nb.times {
+        @customer_random = @customer.order('RANDOM()').first
+        CustomerMailer.with(customer: @customer_random).new_customer_email.deliver_later
+        @customer_random.update(mail_sent: true, mail_date: DateTime.now)
+      }
+
+      redirect_to root_path
+      flash[:notice] = "Mails envoyés !"
+    else
+      redirect_to root_path
+      flash[:notice] = "Il n'y a plus de mails à envoyer !"
     end
 
-    redirect_to root_path
-    flash[:success] = "Mails envoyés !"
   end
 
   private

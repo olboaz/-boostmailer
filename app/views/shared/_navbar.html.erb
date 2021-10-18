@@ -1,8 +1,24 @@
 <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
   <%= link_to root_path, class: "navbar-brand" do %>
     <%= image_tag ("mail.svg") %>
-    <% end %>
-
+  <% end %>
+  <div class="search-customer">
+    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
+      <div class="search-form-control form-group">
+        <%= form_with url: root_path, method: "GET", local: true do |f| %>
+          <% if params[:search].present? %>
+            <%= f.text_field :search, class: "form-control string required", id: "search_query", value: params[:search] %>
+          <% else %>
+            <%= f.text_field :search, class: "form-control string required", id: "search_query", placeholder: "Nom, Restaurant, Adresse ou Email" %>
+          <% end %>
+        <% end %>
+    <!--     <input class="form-control string required" type="text" name="search" id="search_query"  value="<%=params[:name] %>" placeholder="Nom, Restaurant, Adresse ou Email"/>
+     -->    <button name="button" type="submit" class="btn btn-circle">
+          <i class="fas fa-search"></i>
+        </button>
+      </div>
+    </form>
+  </div>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -12,15 +28,15 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
         <li class="nav-item dropdown">
-          <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+          <%= image_tag "user.png", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
           <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
             <%= link_to "Envoyer Mails", send_mail_path , class: "dropdown-item" %>
-            <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
+            <%= link_to "Déconnexion", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
           </div>
         </li>
       <% else %>
         <li class="nav-item">
-          <%= link_to "Login", new_user_session_path, class: "nav-link" %>
+          <%= link_to "Connexion", new_user_session_path, class: "nav-link" %>
         </li>
       <% end %>
     </ul>
