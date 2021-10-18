@@ -2,24 +2,24 @@
   color: white;
   padding: 8px 24px;
   border-radius: 4px;
-  background: #1EDD88;
+  background: #68687c;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
-  background: #1BCB7F;
+  background: #b7bace;
   color: white;
 }
 
 .btn-circle {
   color: white;
   border-radius: 50%;
-  background: #1EDD88;
+  background: #68687c;
   transition: background 0.3s ease;
 }
 
 .btn-circle:hover {
-  background: #1BCB7F;
+  background: #b7bace;
   color: white;
 }
 
@@ -35,4 +35,8 @@
 
 .btn-ghost:hover {
   opacity: 1;
+}
+
+.btn-outline-secondary:hover {
+  background: #c9cbcd;
 }

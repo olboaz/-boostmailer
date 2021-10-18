@@ -1,4 +1,4 @@
-.card-product {
+.card-customer {
   overflow: hidden;
   height: 120px;
   background: white;
@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   border-radius: 5px;
+  position: relative;
 }
 
 .card-customer-title{
@@ -19,13 +20,13 @@
   justify-content: center;
 }
 
-.card-product h2 {
+.card-customer h2 {
   font-size: 16px;
   font-weight: bold;
   margin: 0;
 }
 
-.card-product p {
+.card-customer p {
   font-size: 12px;
   line-height: 1.4;
   opacity: .7;
@@ -33,6 +34,13 @@
   margin-top: 8px;
 }
 
-.card-product .card-product-infos {
+.card-customer .card-customer-infos {
   padding: 16px;
+}
+
+.card-customer-mails {
+  position: absolute;
+  top: 5px;
+  right: 15px;
+  color: #66686c;
 }
