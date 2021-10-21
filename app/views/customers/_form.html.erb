@@ -25,7 +25,12 @@
           <%= f.input :email, label: false %>
         </div>
       </div>
-
+      <div class="row mt-4">
+        <div class="col-12">
+          <label for="supplier_name" style="font-weight: bold; font-size: 13px;">Adresse :</label>
+          <%= f.input :address, label: false, id: 'flat_address' %>
+        </div>
+      </div>
        <div class="">
          <% if controller.action_name == 'edit' %>
 

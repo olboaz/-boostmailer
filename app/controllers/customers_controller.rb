@@ -42,16 +42,14 @@ class CustomersController < ApplicationController
 
   def import
     @user = current_user
+    customer_import = CustomerImport.new(user: @user)
 
-    @company = @user.company
-    product_import = ProductImport.new(company: @company)
+    result = customer_import.import(params[:file])
 
 
-    result = product_import.import(params[:file], @user)
-
-    flash[:alert] = []
 
     if result.class == Array && result[0].any?
+          flash[:alert] = []
       if result[2] == "wrong file"
         flash[:alert] = result[0][0]
       elsif result[1] == result[0].count
@@ -103,7 +101,7 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(:restaurant_name, :email, :last_name, :first_name)
+    params.require(:customer).permit(:restaurant_name, :email, :last_name, :first_name, :address)
   end
 
 end

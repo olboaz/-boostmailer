@@ -24,7 +24,7 @@
             <h2><%= customer.restaurant_name %></h2>
           </div>
           <div class="card-customer-mails">
-            <p>Envoyé le <%= l(customer.mail_date, format: "%e %b %Y") %></p>
+            <p> <%= customer.mail_date.nil? ? "" :  "Envoyé le  " + l(customer.mail_date, format: "%e %b %Y") %></p>
           </div>
           <div class="card-customer-infos">
             <h2><%= customer.first_name %> <%= customer.last_name %></h2>
