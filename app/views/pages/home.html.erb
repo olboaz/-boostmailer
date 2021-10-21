@@ -2,16 +2,6 @@
   <div class="title">
     <h1>Base clients</h1>
   </div>
-  <div class="search-customer">
-    <form novalidate="novalidate" class="simple_form search" action="/" accept-charset="UTF-8" method="get"><input name="utf8" type="hidden" value="&#x2713;" />
-      <div class="search-form-control form-group">
-        <input class="form-control string required" type="text" name="search[query]" id="search_query" />
-        <button name="button" type="submit" class="btn btn-circle">
-          <i class="fas fa-search"></i>
-        </button>
-      </div>
-    </form>
-  </div>
   <div class="button-add-customer">
     <a class="btn btn-flat mr-2" href="<%= new_customer_path %>">+ Client</a>
     <a class="btn btn-ghost" type="button" data-toggle="modal" data-target="#exampleModalCenter"><i class="fas fa-file-import"></i> <span class="pl-2">Importer</span></a>
@@ -19,23 +9,35 @@
 
   </div>
 </div>
-<span>Total : <%= Customer.count  %></span>
 
-<div class="main-content">
+<% if @connected_user %>
 
-  <% @customers.nil? ? "" : @customers.each do |customer|  %>
-    <%= link_to customer_path(customer), class: "link-customer" do %>
-      <div class="card-product">
-        <div class="card-customer-title">
-          <h2><%= customer.restaurant_name %></h2>
+  <span>Total : <%= @customers.count  %></span>
+  <div style="font-style: italic; color:grey;">dont envoyé : <%= @customers.sent.count  %></div>
+
+  <div class="main-content">
+
+    <% @customers.nil? ? "" : @customers.each do |customer|  %>
+      <%= link_to customer_path(customer), class: "link-customer" do %>
+        <div class="card-customer">
+          <div class="card-customer-title">
+            <h2><%= customer.restaurant_name %></h2>
+          </div>
+          <div class="card-customer-mails">
+            <p> <%= customer.mail_date.nil? ? "" :  "Envoyé le  " + l(customer.mail_date, format: "%e %b %Y") %></p>
+          </div>
+          <div class="card-customer-infos">
+            <h2><%= customer.first_name %> <%= customer.last_name %></h2>
+            <p> <%= customer.email %></p>
+          </div>
         </div>
-        <div class="card-product-infos">
-          <h2><%= customer.first_name %> <%= customer.last_name %></h2>
-          <p> <%= customer.email %></p>
-        </div>
-      </div>
-      <% end %>
+        <% end %>
+    <% end %>
 
-  <% end %>
+  </div>
+<% else %>
+  <div class="message-not-connected">
+    <h2>Veuillez vous connecter pour voir vos informations !</h2>
+  </div>
 
-</div>
+<% end %>

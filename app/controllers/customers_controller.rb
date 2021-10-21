@@ -42,16 +42,14 @@ class CustomersController < ApplicationController
 
   def import
     @user = current_user
+    customer_import = CustomerImport.new(user: @user)
 
-    @company = @user.company
-    product_import = ProductImport.new(company: @company)
+    result = customer_import.import(params[:file])
 
 
-    result = product_import.import(params[:file], @user)
-
-    flash[:alert] = []
 
     if result.class == Array && result[0].any?
+          flash[:alert] = []
       if result[2] == "wrong file"
         flash[:alert] = result[0][0]
       elsif result[1] == result[0].count
@@ -72,17 +70,28 @@ class CustomersController < ApplicationController
   end
 
   def send_mail
-    # sélectionner 10 clients aléatoirement qui n'ont pas déjà été envoyé
+    @customer = Customer.notsent
 
-    @customer = Customer.all
+    if @customer.present?
+      if @customer.count < 10
+        nb = @customer.count
+      else
+        nb = 10
+      end
 
-    @customer.each do |customer|
-      CustomerMailer.with(customer: customer).new_customer_email.deliver_later
-      customer.update(mail_sent: true, mail_date: DateTime.now)
+      nb.times {
+        @customer_random = @customer.order('RANDOM()').first
+        CustomerMailer.with(customer: @customer_random).new_customer_email.deliver_later
+        @customer_random.update(mail_sent: true, mail_date: DateTime.now)
+      }
+
+      redirect_to root_path
+      flash[:notice] = "Mails envoyés !"
+    else
+      redirect_to root_path
+      flash[:notice] = "Il n'y a plus de mails à envoyer !"
     end
 
-    redirect_to root_path
-    flash[:success] = "Mails envoyés !"
   end
 
   private
@@ -92,7 +101,7 @@ class CustomersController < ApplicationController
   end
 
   def customer_params
-    params.require(:customer).permit(:restaurant_name, :email, :last_name, :first_name)
+    params.require(:customer).permit(:restaurant_name, :email, :last_name, :first_name, :address)
   end
 
 end
