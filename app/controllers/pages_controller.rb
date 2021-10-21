@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     end
 
     if params[:search]
-      sql_query = "restaurant_name ILIKE :search OR last_name ILIKE :search OR first_name ILIKE :search OR email ILIKE :search"
+      sql_query = "restaurant_name ILIKE :search OR last_name ILIKE :search OR first_name ILIKE :search OR email ILIKE :search OR address ILIKE :search"
       @customers = @customers.where(sql_query, search: "%#{params[:search]}%").order('restaurant_name ASC')
     end
   end
