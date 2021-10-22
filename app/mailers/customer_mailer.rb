@@ -13,7 +13,7 @@ class CustomerMailer < ApplicationMailer
           # reply_to: email_with_name,
           to: @customer.email,
           subject: "Limo - Invitation"
-          )
+    )
 
   end
 end
