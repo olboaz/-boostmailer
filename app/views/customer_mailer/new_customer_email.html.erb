@@ -2,15 +2,37 @@
 <html>
   <head>
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <style type="text/css">
+      .btn-mail {
+        color: #078270;
+        padding: 8px 24px;
+        border-radius: 4px;
+        background: white;
+        border: 1px solid #078270;
+        transition: background 0.3s ease;
+        text-decoration: none;
+      }
+      .btn-mail:hover {
+        background: #078270;
+        color: white;
+      }
+
+    </style>
   </head>
   <body>
-    <p>You got a new order from <%= @customer.restaurant_name %>!</p>
-    <p>
-    details<br>
-    ----------------------------
-    </p>
-    <p>Name: <%= @customer.last_name %></p>
-    <p>Email: <%= @customer.email %></p>
-
+    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+       <tr>
+         <td align="center">
+           <%= image_tag(attachments['mailtext.png'].url) %>
+         </td>
+       </tr>
+    </table>
+    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top: 20px;">
+       <tr>
+         <td align="center">
+            <a href="https://www.limo-app.com/" class="btn-mail">En Savoir Plus</a>
+         </td>
+       </tr>
+    </table>
   </body>
 </html>
