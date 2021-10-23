@@ -76,7 +76,7 @@ class CustomersController < ApplicationController
       if @customer.count < 10
         nb = @customer.count
       else
-        nb = 10
+        nb = 1
       end
 
       nb.times {
