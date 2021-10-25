@@ -36,3 +36,5 @@ document.addEventListener('turbolinks:load', () => {
   initAutocomplete();
   importCsv();
 });
+
+import "controllers"

@@ -10,15 +10,17 @@ class PagesController < ApplicationController
         .order("restaurant_name ASC")
     end
 
-    if params[:search]
-      sql_query = "restaurant_name ILIKE :search OR last_name ILIKE :search OR first_name ILIKE :search OR email ILIKE :search OR address ILIKE :search"
-      @customers = @customers.where(sql_query, search: "%#{params[:search]}%").order('restaurant_name ASC')
-
+    if params[:query]
+      sql_query = "restaurant_name ILIKE :query OR last_name ILIKE :query OR first_name ILIKE :query OR email ILIKE :query OR address ILIKE :query"
+      @customers = @customers.where(sql_query, query: "%#{params[:query]}%").order('restaurant_name ASC')
     end
 
+    respond_to  do |format|
+      format.html
 
+      format.json { render json: { customers: @customers } }
+    end
   end
-
   private
 
   def set_user
