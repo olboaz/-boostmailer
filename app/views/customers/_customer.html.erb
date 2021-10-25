@@ -1,0 +1,17 @@
+<% @customers.nil? ? "" : @customers.each do |customer|  %>
+  <%= link_to customer_path(customer), class: "link-customer" do %>
+    <div class="card-customer" >
+      <div class="card-customer-title">
+        <h2><%= customer.restaurant_name %></h2>
+      </div>
+      <div class="card-customer-mails">
+        <p> <%= customer.mail_date.nil? ? "" :  "Envoyé le  " + l(customer.mail_date, format: "%e %b %Y") %></p>
+      </div>
+      <div class="card-customer-infos">
+        <h2><%= customer.first_name %> <%= customer.last_name %></h2>
+        <p> <%= customer.email %></p>
+        <p class="card-infos-address"> <%= customer.address %></p>
+      </div>
+    </div>
+  <% end %>
+<% end %>
