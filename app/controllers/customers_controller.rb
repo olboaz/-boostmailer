@@ -75,7 +75,7 @@ class CustomersController < ApplicationController
       if @customer.count < 10
         nb = @customer.count
       else
-        nb = 10
+        nb = 1
       end
 
       nb.times {
@@ -85,7 +85,7 @@ class CustomersController < ApplicationController
       }
 
       redirect_to root_path
-      flash[:notice] = "Mails envoyés !"
+      flash[:notice] = "#{nb} Mails envoyés !"
     else
       redirect_to root_path
       flash[:notice] = "Il n'y a plus de mails à envoyer !"
