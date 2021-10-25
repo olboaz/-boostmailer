@@ -1,4 +1,4 @@
-<% @customers.nil? ? "" : @customers.each do |customer|  %>
+
   <%= link_to customer_path(customer), class: "link-customer" do %>
     <div class="card-customer" >
       <div class="card-customer-title">
@@ -14,4 +14,3 @@
       </div>
     </div>
   <% end %>
-<% end %>
