@@ -4,16 +4,18 @@ class CustomerMailer < ApplicationMailer
 
     email_with_name = "Stephane Fersing <contact@limo-app.com>"
 
-    attachments.inline["mailtext.png"] = File.read("#{Rails.root}/app/assets/images/mailtext.png")
+    attachments.inline["logo-entete.png"] = File.read("#{Rails.root}/app/assets/images/logo-entete.png")
+    attachments.inline["logo-piedpage.png"] = File.read("#{Rails.root}/app/assets/images/logo-piedpage.png")
     headers['Return-Receipt-To'] = email_with_name
     headers['Disposition-Notification-To'] = email_with_name
     headers['X-Confirm-Reading-To'] = email_with_name
 
     # pour gmail, le from & le reply_to doivent être identique pour pouvoir faire le reply_to
     mail( from: email_with_name,
-          # reply_to: email_with_name,
+          reply_to: "stephane.fersing@limo-app.com",
           to: @customer.email,
-          subject: "Limo, une question, une réponse pour votre restaurant"
+          bcc: "patrice.jaszczynski@limo-app.com",
+          subject: "Limo, votre partenaire au quotidien pour améliorer votre rentabilité"
     )
 
   end
