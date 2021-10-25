@@ -15,7 +15,7 @@
   <span>Total : <%= @customers.count  %></span>
   <div style="font-style: italic; color:grey;">dont envoyé : <%= @customers.sent.count  %></div>
 
-  <div class="main-content" id="customers" data-target="search.results">
+  <div class="main-content" id="customers" data-target="search.customers">
     <%= render @customers %>
   </div>
 <% else %>

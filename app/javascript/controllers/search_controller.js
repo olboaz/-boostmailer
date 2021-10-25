@@ -4,7 +4,7 @@ export default class extends Controller {
   connect() {
     console.log("hello from stimulus")
   }
-  static targets = ["query", "results"];
+  static targets = ["query", "customers"];
 
 
   list() {
@@ -17,10 +17,11 @@ export default class extends Controller {
     .then(data => {
       var customerHTML = "";
       var customerArray = Object.values(data)[0];
+      console.log(customerArray);
       customerArray.forEach(customer => {
         customerHTML += this.customerTemplate(customer)
       });
-       this.resultsTarget.innerHTML = customerHTML;
+       this.customersTarget.innerHTML = customerHTML;
     });
   }
 
