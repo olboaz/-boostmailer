@@ -6,9 +6,9 @@ class CustomerMailer < ApplicationMailer
 
     attachments.inline["logo-entete.png"] = File.read("#{Rails.root}/app/assets/images/logo-entete.png")
     attachments.inline["logo-piedpage.png"] = File.read("#{Rails.root}/app/assets/images/logo-piedpage.png")
-    headers['Return-Receipt-To'] = email_with_name
-    headers['Disposition-Notification-To'] = email_with_name
-    headers['X-Confirm-Reading-To'] = email_with_name
+    # headers['Return-Receipt-To'] = email_with_name
+    # headers['Disposition-Notification-To'] = email_with_name
+    # headers['X-Confirm-Reading-To'] = email_with_name
 
     # pour gmail, le from & le reply_to doivent être identique pour pouvoir faire le reply_to
     mail( from: email_with_name,
