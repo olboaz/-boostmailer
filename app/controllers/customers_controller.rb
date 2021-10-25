@@ -70,23 +70,24 @@ class CustomersController < ApplicationController
   end
 
   def send_mail
-    @customer = Customer.notsent
+    countcustomer = Customer.notsent.count
+    everyn = 2
+    nbtime = (0..(countcustomer / everyn.to_f-1).ceil).to_a
 
-    if @customer.present?
-      if @customer.count < params[:nb].to_i
-        nb = @customer.count
-      else
-        nb = params[:nb].to_i
-      end
+    nbtime.each do |x|
+      SendQueueJob.set(wait: x.minutes).perform_later(everyn)
+    end
 
-      nb.times {
-        @customer_random = @customer.order('RANDOM()').first
-        CustomerMailer.with(customer: @customer_random).new_customer_email.deliver_later
-        @customer_random.update(mail_sent: true, mail_date: DateTime.now)
-      }
+    customer = Customer.notsent
 
+      # nb.times {
+      #   @customer_random = @customer.order('RANDOM()').first
+      #   CustomerMailer.with(customer: @customer_random).new_customer_email.deliver_later(wait: 15.minutes)
+      #   @customer_random.update(mail_sent: true, mail_date: DateTime.now)
+      # }
+    if customer.present?
       redirect_to root_path
-      flash[:notice] = "#{nb} Mails envoyés !"
+      flash[:notice] = "#{countcustomer} Mails programmés !"
     else
       redirect_to root_path
       flash[:notice] = "Il n'y a plus de mails à envoyer !"
