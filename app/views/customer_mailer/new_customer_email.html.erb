@@ -11,6 +11,7 @@
         border: 1px solid #078270;
         transition: background 0.3s ease;
         text-decoration: none;
+        min-width: 140px;
       }
       .btn-mail:hover {
         background: #078270;
@@ -35,7 +36,7 @@
     </style>
   </head>
   <body>
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 630px;margin: 0 auto; font-size: 13px;font-family: Helvetica;line-height: 20px;">
+    <table width="100%" style="max-width: 640px;margin: 0 auto; font-size: 13px;font-family: Helvetica;line-height: 20px;">
       <tr>
         <td align="center">
           <%= image_tag attachments['logo-entete.png'].url, :style => "width: 240px" %>
@@ -95,7 +96,7 @@
       </tr>
       <tr style="height: 40px">
         <td align="center">
-          <a href="https://www.limo-app.com/" class="btn-mail">En Savoir Plus</a>
+          <a href="https://www.limo-app.com/" ><button class="btn-mail">En Savoir Plus</button></a>
         </td>
       </tr>
       <tr>
@@ -105,12 +106,12 @@
       </tr>
       <tr style="height: 40px">
         <td align="center">
-          <a href="https://www.limo-app.com/demo" class="btn-mail">Démo</a>
+          <a href="https://www.limo-app.com/demo"><button class="btn-mail">Démo</button></a>
         </td>
       </tr>
     </table>
 
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="max-width: 630px;margin: 0 auto;margin-top: 20px;">
+    <table width="100%" style="max-width: 640px;margin: 0 auto;margin-top: 20px;">
       <tr>
         <td align="start"><span class="text-blue" style="font-weight: bolder;font-size:14px;">L’équipe Limo</span></td>
       </tr>
