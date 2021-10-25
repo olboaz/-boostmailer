@@ -1,5 +1,5 @@
 Rails.application.configure do
-  config.action_mailer.default_url_options = { host: "http://TODO_PUT_YOUR_DOMAIN_HERE" }
+  config.action_mailer.default_url_options = { host: "https://boostmailer.herokuapp.com/" }
   # Settings specified here will take precedence over those in config/application.rb.
 
   # Code is not reloaded between requests.
@@ -65,7 +65,7 @@ Rails.application.configure do
 
   # Ignore bad email addresses and do not raise email delivery errors.
   # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.raise_delivery_errors = false
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -89,6 +89,20 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+
+  # Initializer for mailer
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    port: 465,
+    address: 'encelade.o2switch.net',
+    user_name: ENV['O2_USER_NAME'],
+    password: ENV['O2_PASSWORD'],
+    authentication: :plain,
+    :enable_starttls_auto => true,
+    ssl: true
+  }
+
 
   # Inserts middleware to perform automatic connection switching.
   # The `database_selector` hash is used to pass options to the DatabaseSelector
