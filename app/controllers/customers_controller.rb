@@ -73,10 +73,10 @@ class CustomersController < ApplicationController
     @customer = Customer.notsent
 
     if @customer.present?
-      if @customer.count < 10
+      if @customer.count < params[:nb].to_i
         nb = @customer.count
       else
-        nb = 1
+        nb = params[:nb].to_i
       end
 
       nb.times {
