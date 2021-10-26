@@ -78,13 +78,12 @@ class CustomersController < ApplicationController
       SendQueueJob.set(wait: x.minutes).perform_later(everyn)
     end
 
+    # nb.times {
+    #   @customer_random = @customer.order('RANDOM()').first
+    #   CustomerMailer.with(customer: @customer_random).new_customer_email.deliver_later(wait: 15.minutes)
+    #   @customer_random.update(mail_sent: true, mail_date: DateTime.now)
+    # }
     customer = Customer.notsent
-
-      # nb.times {
-      #   @customer_random = @customer.order('RANDOM()').first
-      #   CustomerMailer.with(customer: @customer_random).new_customer_email.deliver_later(wait: 15.minutes)
-      #   @customer_random.update(mail_sent: true, mail_date: DateTime.now)
-      # }
     if customer.present?
       redirect_to root_path
       flash[:notice] = "#{countcustomer} Mails programmés !"
