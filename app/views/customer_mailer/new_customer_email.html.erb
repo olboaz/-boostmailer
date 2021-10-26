@@ -6,12 +6,11 @@
       .btn-mail {
         color: #078270;
         padding: 8px 24px;
-        border-radius: 4px;
-        background: white;
+        /*border-radius: 4px;
+*/        background: white;
         border: 1px solid #078270;
         transition: background 0.3s ease;
         text-decoration: none;
-        min-width: 140px;
       }
       .btn-mail:hover {
         background: #078270;
@@ -33,33 +32,36 @@
       .text-blue {
         color:#586C96;
       }
+      .row-height {
+        height: 50px;
+      }
     </style>
   </head>
   <body>
-    <table width="100%" style="max-width: 640px;margin: 0 auto; font-size: 13px;font-family: Helvetica;border-spacing: 0 1em;">
+    <table align="center" width="645" style="max-width: 645px;margin: 0 auto; font-size: 13px;font-family: Helvetica;border-spacing: 0 1em;">
       <tr>
         <td align="center">
           <%= image_tag attachments['logo-entete.png'].url, :style => "width: 240px" %>
-          <p>👨‍🍳 <strong class="text-green">LIMO</strong>, LE NOUVEAU <strong class="text-green">PARTENAIRE</strong> DES RESTAURATEURS 🚀</p>
+          <p>👨‍🍳 <strong class="text-green row-height">LIMO</strong>, LE NOUVEAU <strong class="text-green">PARTENAIRE</strong> DES RESTAURATEURS 🚀</p>
         </td>
       </tr>
       <tr>
-        <td align="center">
+        <td align="center" class="row-height">
           <p class="text-justify">Vous êtes-vous déjà demandé : <span style="color: #1D7C71;">comment suivre et améliorer<strong class="text-green"> au quotidien </strong>la rentabilité de mon restaurant ?</span></p>
         </td>
       </tr>
       <tr>
-        <td align="center">
+        <td align="center" class="row-height">
           <p class="text-justify">Avec Limo, c’est le problème auquel nous avons décidé de nous attaquer pour aider les restaurateurs.</p>
         </td>
       </tr>
       <tr>
-        <td align="center">
+        <td align="center" class="row-height">
           <p class="text-justify">Nous vous proposons ainsi une application de gestion dédiée, quel que soit votre fonctionnement, pour simplifier vos achats et optimiser votre rentabilité :</p>
         </td>
       </tr>
       <tr>
-        <td align="">
+        <td align="" class="row-height">
           <p style="margin:0">⏱️ Gagnez du temps</p>
           <p style="margin:0">📈 Améliorez vos marges</p>
           <p style="margin:0">🎯 Optimisez vos commandes fournisseurs</p>
@@ -67,22 +69,22 @@
         </td>
       </tr>
       <tr>
-        <td align="center">
+        <td align="center" class="row-height">
           <p class="text-justify"><span style="color: #1D7C71;">Economisez 3 à 5 pts de marge en moyenne, soit plusieurs milliers d’euros et gagnez plusieurs heures par semaine. </span>Ex : 8000€ en moyenne pour un chiffre d’affaires de 200 000€.</p>
         </td>
       </tr>
       <tr>
-        <td align="center">
+        <td align="center" class="row-height">
           <p class="text-justify" style="color: #1D7C71;">Bénéficiez de<strong> 2 mois de tests gratuits</strong> sans contrainte, ni limite d’utilisation pour essayer Limo. Nous vous proposons en plus <strong>3 mois offerts sur notre abonnement annuel !</strong></p>
         </td>
       </tr>
       <tr>
-        <td align="center">
+        <td align="center" class="row-height">
           <p class="text-justify">Limo, c’est un accompagnement par une équipe expérimentée en finance et en restauration, pour faciliter votre gestion et vous permettre notamment :</p>
         </td>
       </tr>
       <tr>
-        <td align="">
+        <td align="" class="row-height">
           <ul style="text-align: justify;">
           <li>De comparer vos mercuriales, références fournisseurs et suivre l’évolution de vos prix d’achat,</li>
           <li>De gérer vos fiches techniques et suivre l’évolution de vos marges par recette, mais aussi de commander les quantités optimales par produit en fonction du nombre de recettes à préparer,</li>
@@ -90,28 +92,42 @@
         </td>
       </tr>
       <tr>
-        <td align="">
+        <td align="" class="row-height">
           <p>Et encore bien d’autres avantages pour vous aider dans vos prises de décision pour votre gestion.</p>
         </td>
       </tr>
-      <tr style="height: 40px">
+      <tr>
         <td align="center">
-          <a href="https://www.limo-app.com/" ><button class="btn-mail">En Savoir Plus</button></a>
+          <div><!--[if mso]>
+              <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.limo-app.com" style="height:33px;v-text-anchor:middle;width:120px;" arcsize="13%" strokecolor="#078270" fillcolor="#ffffff">
+                <w:anchorlock/>
+                <center style="color:#078270;font-family:sans-serif;font-size:13px;font-weight:bold;">En savoir plus</center>
+              </v:roundrect>
+            <![endif]--><a href="https://www.limo-app.com"
+            style="background-color:#ffffff;border:1px solid #078270;border-radius:4px;color:#078270;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:33px;text-align:center;text-decoration:none;width:120px;-webkit-text-size-adjust:none;mso-hide:all;">En savoir plus</a>
+          </div>
         </td>
       </tr>
       <tr>
-        <td align="">
+        <td align="" class="row-height">
           <p>Une bonne démo vaut bien mieux que des mots, planifiez la vôtre ici !</p>
         </td>
       </tr>
-      <tr style="height: 40px">
+      <tr>
         <td align="center">
-          <a href="https://www.limo-app.com/demo"><button class="btn-mail">Démo</button></a>
+          <div><!--[if mso]>
+            <v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.limo-app.com/demo" style="height:33px;v-text-anchor:middle;width:120px;" arcsize="13%" strokecolor="#078270" fillcolor="#ffffff">
+              <w:anchorlock/>
+              <center style="color:#078270;font-family:sans-serif;font-size:13px;font-weight:bold;">Démo</center>
+            </v:roundrect>
+          <![endif]--><a href="https://www.limo-app.com/demo"
+          style="background-color:#ffffff;border:1px solid #078270;border-radius:4px;color:#078270;display:inline-block;font-family:sans-serif;font-size:13px;font-weight:bold;line-height:33px;text-align:center;text-decoration:none;width:120px;-webkit-text-size-adjust:none;mso-hide:all;">Démo</a>
+          </div>
         </td>
       </tr>
     </table>
 
-    <table width="100%" style="max-width: 640px;margin: 0 auto;margin-top: 20px;">
+    <table align="center" width="645" style="max-width: 645px;margin: 0 auto;margin-top: 20px;">
       <tr>
         <td align="start"><span class="text-blue" style="font-weight: bolder;font-size:14px;">L’équipe Limo</span></td>
       </tr>
