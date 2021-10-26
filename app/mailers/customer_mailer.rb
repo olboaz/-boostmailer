@@ -14,8 +14,7 @@ class CustomerMailer < ApplicationMailer
     mail( from: email_with_name,
           reply_to: "stephane.fersing@limo-app.com",
           to: @customer.email,
-          bcc: ["spalkes04@gmail.com","stephane.fersing@limo-app.com"],
-          # bcc: ["patrice.jaszczynski@limo-app.com","campagne_mail_001@limo-app.com"],
+          bcc: ["patrice.jaszczynski@limo-app.com","campagne_mail_001@limo-app.com"],
           subject: "Limo, votre partenaire au quotidien pour améliorer votre rentabilité"
     )
 
