@@ -71,7 +71,7 @@ class CustomersController < ApplicationController
 
   def send_mail
     countcustomer = Customer.notsent.count
-    everyn = 2
+    everyn = 20
     nbtime = (0..(countcustomer / everyn.to_f-1).ceil).to_a
 
     nbtime.each do |x|
