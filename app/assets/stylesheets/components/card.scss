@@ -11,13 +11,15 @@
 
 .card-customer-title{
   height: 100%;
-  width: 200px;
+  min-width: 200px;
   object-fit: cover;
   border-right: 1px solid lightgrey;
   background: ghostwhite;
   display: flex;
   align-items: center;
   justify-content: center;
+  max-width: 200px;
+  text-align: center;
 }
 
 .card-customer h2 {

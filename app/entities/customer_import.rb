@@ -49,7 +49,7 @@ class CustomerImport
       @errors << "Le fichier importé ne peut pas être chargé !"
       #return [@errors, 1, "wrong file"]
     end
-    firstline = File.open(file.path, &:readline)
+    firstline = File.open(file.path, encoding: "ISO8859-1:utf-8", &:readline)
     rownumber = 1
     separator_check(firstline)
 

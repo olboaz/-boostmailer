@@ -6,7 +6,7 @@ class Customer < ApplicationRecord
   scope :notsent, -> { where(mail_sent: false) }
 
   validates :restaurant_name, :email, presence: true
-  validates :restaurant_name, uniqueness: { message: "Le client existe déjà !" }
+  validates :restaurant_name, uniqueness: { scope: [ :email ], message: "Le client existe déjà !" }
 
 
 end
