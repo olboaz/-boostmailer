@@ -2,7 +2,7 @@ class CustomerMailer < ApplicationMailer
   def new_customer_email
     @customer = params[:customer]
 
-    email_with_name = "Stephane Fersing <contact@limo-app.com>"
+    email_with_name = "Stephane de Limo <contact@limo-app.com>"
 
     attachments.inline["logo-entete.png"] = File.read("#{Rails.root}/app/assets/images/logo-entete.png")
     attachments.inline["logo-piedpage.png"] = File.read("#{Rails.root}/app/assets/images/logo-piedpage.png")
