@@ -94,6 +94,11 @@ class CustomersController < ApplicationController
 
   end
 
+  def destroyAll
+    Customer.destroy_all
+    redirect_to root_path
+  end
+
   private
 
   def set_customer

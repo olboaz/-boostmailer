@@ -12,5 +12,5 @@ Rails.application.routes.draw do
 
   # For emails
   get "/send_mail" => 'customers#send_mail'
-
+  get '/destroyAll', to: 'customers#destroyAll'
 end
